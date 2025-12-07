@@ -1,0 +1,101 @@
+---
+title: "frank_alessandro_arteaga"
+format: html
+editor: visual
+---
+
+## Quarto
+
+Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see <https://quarto.org>.
+
+## #importar la data con la que se va a trabajar
+
+```{r}
+data <- read_csv("C:/Users/WINDOWS 2024/Downloads/s13_hemodialisis.csv
+```
+
+#ver las primeras 6 filas
+
+```{r}
+head(data)
+
+```
+
+#esructura de la data
+
+```{r}
+str(data)
+
+```
+
+#medida de tendecncia central
+
+#medida aritmetica
+
+```{r}
+mean(data$talla)
+mean(data$Plaquetas)
+```
+
+#moda talla
+
+```{r}
+mode_edad<- names(sort(table(data$Talla),decreasing=TRUE))
+
+```
+
+#moda plaquetas
+
+```{r}
+mode_edad<- names(sort(table(data$Plaquetas),decreasing=TRUE))
+
+```
+
+#medidas de dispersión #varianza
+
+```{r}
+var(data$Talla,na.rm = TRUE)
+var(data$Plaquetas,na.rm = TRUE)
+```
+
+#desviación estandar
+
+```{r}
+sd(data$Talla,na.rm = TRUE)
+sd(data$Plaquetas,na.rm = TRUE)
+```
+
+#rango intercuartilico
+
+```{r}
+IQR(data$Talla,na.rm = TRUE)
+IQR(data$Plaquetas,na.rm = TRUE)
+```
+
+#medidad de posicion
+
+```{r}
+quantile(data$Talla,probs = c(0.25,0.5,0.75,0.90),na.rm = TRUE)
+quantile(data$Plaquetas,probs = c(0.25,0.5,0.75,0.90),na.rm = TRUE)
+```
+
+#RESUMEN
+
+```{r}
+summary(data$Talla)
+summary(data$Plaquetas)
+```
+
+#RESUMEN DE TODAS LAS VARIABLES
+
+```{r}
+summary(data)
+
+```
+
+#VISUALIZACION GRAFICA #HISTOGRAMA
+
+```{r}
+ggplot(data,aes(x=Talla))+geom_histogram(bins = 30)+theme_minimal()
+ggplot(data,aes(x=Plaquetas))+geom_histogram(bins = 30)+theme_minimal()
+```
